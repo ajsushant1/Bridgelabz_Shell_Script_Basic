@@ -30,10 +30,10 @@ function getMaximum(){
 do
 	if [ ${randomNumberArray[$i]} -gt $firstMax ]
 	then
+		secondMax=$firstMax
 		firstMax=${randomNumberArray[$i]}
-	fi
 
-	if [[ $secondMax -lt ${randomNumberArray[$i]} ]] && [[ ${randomNumberArray[$i]} -ne $firstMax ]]
+	elif [[ $secondMax -lt ${randomNumberArray[$i]} ]]
 	then
 		secondMax=${randomNumberArray[$i]}
 	fi
@@ -41,20 +41,20 @@ done
 echo $secondMax
 }
 
-# FUNCTION TO GET SECOND MAXIMUM VALUE FROM ARRAY
+# FUNCTION TO GET SECOND MINIMUM VALUE FROM ARRAY
 function getMinimum(){
 
 	firstMin=${randomNumberArray[0]}
 	secondMin=${randomNumberArray[0]}
-	arrayLength=${#randomNumberArray[@]}
-	for(( i=1; i<arrayLength; i++ ))
+
+	for(( i=1; i<limit; i++ ))
 	do
    	if [ ${randomNumberArray[$i]} -lt $firstMin ]
    	then
+			secondMin=$firstMin
       	firstMin=${randomNumberArray[$i]}
-   	fi
 
-   	if [[ $secondMin -gt ${randomNumberArray[$i]} ]] && [[ ${randomNumberArray[$i]} -ne $firstMin ]]
+   	elif [[ $secondMin -gt ${randomNumberArray[$i]} ]]
    	then
       	secondMin=${randomNumberArray[$i]} 
 		fi
@@ -65,5 +65,5 @@ echo $secondMin
 # PRINTING SECOND LARGEST AND SMALLEST NUMBER FROM ARRAY
 secondLargestValue="$( getMaximum )"
 secondSmallestValue="$( getMinimum )"
-echo $secondLargestValue
-echo $secondSmallestValue 
+echo "Second Largest:" $secondLargestValue
+echo "Second Smallest:" $secondSmallestValue 
