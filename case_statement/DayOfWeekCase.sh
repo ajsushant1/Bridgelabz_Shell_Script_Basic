@@ -1,11 +1,10 @@
 #!/bin/bash -x
 
 # READ NUMBER FROM USER
-read -p "Enter a number :" number
+read -p "Enter a single digit number :" number
 
 # DISPLAY DAY OF WEEK
 case $number in
-
   1)echo "Monday"
          ;;
   2)echo "Tuesday"
@@ -20,9 +19,8 @@ case $number in
   	      ;;
   7)echo "Sunday"
          ;;
-  *)echo "Invalid input"
-               ;;
-
+  *)echo "Enter number between 1 to 7"
+			;;
 esac
 
 
