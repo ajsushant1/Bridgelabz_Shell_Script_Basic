@@ -4,19 +4,22 @@
 GOAL=11
 
 # VARIABLES
-headWin=0
-tailWin=0
+headWinCount=0
+tailWinCount=0
 
 # TO COUNT HEAD WIN AND TAIL WIN OF FLIPED COIN
-while [[ $headWin -ne $GOAL && $tailWin -ne $GOAL ]]
+while [[ $headWinCount -ne $GOAL && $tailWinCount -ne $GOAL ]]
 do
 	random=$((RANDOM%2))
 
 	if [ $random -eq 1 ]
 	then
-		((headWin++))
+		((headWinCount++))
 	else
-		((tailWin++))
+		((tailWinCount++))
 	fi
 done
 
+# DISPLAYING TOTAL WIN COUNT OF HEAD AND TAIL
+echo "total head win count is :$headWinCount"
+echo "total tail win count is :$tailWinCount"
