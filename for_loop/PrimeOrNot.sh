@@ -4,12 +4,12 @@
 flag=0;
 
 # READ NUMBER FROM USER
-read -p "Enetr a number to check prime or not :" number
+read -p "Enter a number to check prime or not :" number
 
-# TO CHECK PRIME OR NOT
-for (( i=2; i<=$(($number/2)); i++))
+# TO CHECK NUMBER IS PRIME OR NOT
+for (( divisor=2; divisor<=$(($number/2)); divisor++))
 do
-	if [ $(($number%i)) -eq 0 ]
+	if [ $(($number%divisor)) -eq 0 ]
 	then
 		flag=1;
 		break;
