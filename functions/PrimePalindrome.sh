@@ -9,24 +9,21 @@ read -p "Enter a number to check palindrome and prime :" number
 
 # TO CHECK NUMBER IS PRIME OR NOT
 function isPrime(){
-
-local input=$1
-for (( i=2; i<=$(($input/2)); i++))
-do
-	if [ $(($input%i)) -eq 0 ]
-	then
-		flag=1;
+	local input=$1
+	for (( i=2; i<=$(($input/2)); i++))
+	do
+		if [ $(($input%i)) -eq 0 ]
+		then
+			flag=1;
 		break;
-	fi
-done
+		fi
+	done
 	echo "$flag"
 }
 
 # TO GET REVERSE NUMBER
 function isPalindrome(){
-
 local input=$1
-
 	while [ $input -ne 0 ]
 	do
 		remainder=$(($input%10))
@@ -34,7 +31,6 @@ local input=$1
 		input=$(($input/10))
 	done
 	echo $sum
-
 }
 
 # TO CHECK NUMBER IS PRIME PALINDROME
@@ -43,10 +39,10 @@ then
 	reverse=$( isPalindrome $number )
 	if [ $( isPrime $reverse ) -eq 0 ]
 	then
-			echo "$number is prime and palindrome"
+		echo "$number is prime and palindrome"
 	fi
 else
-				echo "not prime"
+	echo "not prime"
 fi
 
 
