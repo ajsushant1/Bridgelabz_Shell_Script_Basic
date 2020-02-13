@@ -1,25 +1,23 @@
 #!/bin/bash -x
 
 # VARIABLES
-max=100;
-min=999;
+maximumValue=100;
+minimumValue=999;
 
-
-for i in {1..5}
+for count in {1..5}
 do
 	# TO GET RANDOM VALUE
 	random=$(( 100 + RANDOM % 900 ))
 
 	# TO GET MAXIMUM AND MINIMUM NUMBER
-	if [ $max -lt $random ]
+	if [ $maximumValue -lt $random ]
 	then
-			max=$random;
+			maximumValue=$random;
 	fi
-
-	if [ $min -gt $random ]
+	if [ $minimumValue -gt $random ]
 	then
-			min=$random;
+			minimumValue=$random;
 	fi
 done
-	echo "Max is :$max"
-	echo "Min is :$min"
+echo "Maximum Value is :$maximumValue"
+echo "Minimum Value is :$minimumValue"
