@@ -31,7 +31,7 @@ function celciusToFahrenheit(){
 # TO CONVERSION OF FAHRENHEIT TO CELCIUS
 function fahrenheitToCelcius(){
 	local input=$1
-   if [ $input -ge 32 -a $input -le 212 ]
+	if [ $input -ge 32 -a $input -le 212 ]
 	then
 		output=$( echo "scale=2; (((($input-32))*5/9))" | bc )
 	else
