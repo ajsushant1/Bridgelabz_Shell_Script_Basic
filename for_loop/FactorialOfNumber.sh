@@ -4,13 +4,11 @@
 factorial=1
 
 # READ NUMBER FROM USER
-	read -p "Enter a number to find factorial : " number
+read -p "Enter a number to find factorial : " number
 
 # TO GET FACTORIAL OF NUMBER
-for (( j=1; j<=$number; j++ ))
+for (( naturalNumber=1; naturalNumber<=$number; naturalNumber++ ))
 do
-	  factorial=$((factorial*j)) 
-
+	factorial=$((factorial*naturalNumber))
 done
-
 echo "Factorial of $number is $factorial"
