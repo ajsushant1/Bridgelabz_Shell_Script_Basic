@@ -5,7 +5,6 @@ read -p "Enter a number like 1,10,100,1000 :" number
 
 # DISPLAY UINIT OF NUMBER
 case $number in
-
 	1)
 		echo "Unit"
 				;;
@@ -14,7 +13,7 @@ case $number in
 				;;
 	100)
 		echo "Hundred"
-				;;	
+				;;
 	1000)
 		echo "Thousand"
 				;;
