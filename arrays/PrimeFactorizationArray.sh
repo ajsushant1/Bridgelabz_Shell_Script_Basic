@@ -1,23 +1,29 @@
 #!/bin/bash -x
 
+# VARIABLE
+count=0
+originalNumber=0
+
 # READ NUMBER FROM  USER
-   read -p "Enter a number to find prime factorization :" number
+read -p "Enter a number to find prime factorization :" number
+
+# INITIALIZING VARIABLE
+originalNumber=$number
 
 # TO COMPUTE PRIME FACTORIZATION OF NUMBER AND STORED IN ARRAY
-count=0
-for (( i=2; i<=$number; ))
+for (( factor=2; factor<=$number; ))
 do
-   if [ $((number%i)) -eq 0 ]
+   if [ $((number%factor)) -eq 0 ]
    then
-         number=$(($number/i))
-        primeFactor[((count++))]=$i
+		number=$(($number/factor))
+		primeFactor[((count++))]=$factor
    else
-      ((i++))
+      ((factor++))
    fi
 done
 
-# PRINTING ARRAY
-echo ${primeFactor[@]}
+# PRINTING ARRAY ELEMENTS
+echo "Prime factor of $originalNumber are :"${primeFactor[@]}
 
 
 
