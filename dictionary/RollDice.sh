@@ -11,33 +11,30 @@ do
 done
 
 #INITIALIZATION
-maxValue=${dice[1]}
-minValue=${dice[1]}
-maxIndex=0
-minIndex=0
+maximumValue=${dice[1]}
+minimumValue=${dice[1]}
+maxIndex=1
+minIndex=1
 
 # TO FIND NUMBER THAT REACHED MAXIMUM TIMES AND MINIMUM TIMES
-for (( i=2; i<=6; i++ ))
+for (( index=2; index<=6; index++ ))
 do
-	if [[ $maxValue -lt ${dice[$i]} ]]
+	if [[ $maximumValue -lt ${dice[$index]} ]]
 	then
-		maxValue=${dice[$i]}
-		maxIndex=$i
+		maximumValue=${dice[$index]}
+		maxIndex=$index
 	fi
-
-	if [[ $minValue -gt ${dice[$i]} ]]
+	if [[ $minimumValue -gt ${dice[$index]} ]]
 	then
-		minValue=${dice[$i]}
-		minIndex=$i
+		minimumValue=${dice[$index]}
+		minIndex=$index
 	fi
 done
 
 # DISPLAYING NUMBER AND ITS COUNT WHICH REACHED MAXIMUM AND MINIMUM TIMES
-#echo "${dice[$max]}"
 echo ${dice[@]}
-echo $maxValue
-echo $maxIndex
-echo $minValue
-echo $minIndex
+echo "Maximum count of dice $maxIndex is :" $maximumValue
+echo "Minimum count of dice $minIndex is :" $minimumValue
+
 
 
