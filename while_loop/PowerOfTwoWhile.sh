@@ -16,8 +16,7 @@ do
 	else
 		power=$(($power*2))
 	fi
-
-	echo "2^$limit = $power "
+	echo "Power of 2^$limit = $power "
 	((limit++))
 done
 
