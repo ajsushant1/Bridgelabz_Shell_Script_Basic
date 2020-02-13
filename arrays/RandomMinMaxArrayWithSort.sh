@@ -21,21 +21,18 @@ echo ${randomNumberArray[@]}
 
 #SORTING OF ARRAY ELEMENTS
 function arraySort(){
-
-for (( i=0; i<$limit; i++ ))
-do
-	for (( j=$(($i+1)); j<$limit; j++ ))
+	for (( i=0; i<$limit; i++ ))
 	do
-		if [ ${randomNumberArray[i]} -gt  ${randomNumberArray[j]} ]
-		then
-			temp=${randomNumberArray[i]}
-			randomNumberArray[i]=${randomNumberArray[j]}
-			randomNumberArray[j]=$temp
-		fi
+		for (( j=$(($i+1)); j<$limit; j++ ))
+		do
+			if [ ${randomNumberArray[i]} -gt  ${randomNumberArray[j]} ]
+			then
+				temp=${randomNumberArray[i]}
+				randomNumberArray[i]=${randomNumberArray[j]}
+				randomNumberArray[j]=$temp
+			fi
+		done
 	done
-
-done
-
 }
 # PRINTING OF SORTED ARRAY
 arraySort
