@@ -7,9 +7,8 @@
 	limit=$1
 
 # CACULATING AND PRINTING TABLE OF POWER OF TWO 
-for(( i=0; i<=limit; i++ ))
+for(( count=0; count<=limit; count++ ))
 do
 	power=$((power*2))
-
 	echo "$power"
 done
