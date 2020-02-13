@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-# CONTANT
+# CONSTANT
 GOAL=200
 
 # VARIABLES
