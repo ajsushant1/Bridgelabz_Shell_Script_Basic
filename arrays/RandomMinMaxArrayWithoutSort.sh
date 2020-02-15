@@ -5,7 +5,6 @@ limit=10;
 
 # RANDOM FUNCTION TO GET THREE DIGIT NUMBER
 function getRandom(){
-
 	randomNumber=$((100 + RANDOM % 900))
 	echo $randomNumber
 }
@@ -19,51 +18,47 @@ done
 # PRINTING ARRAY ELEMENTS 
 echo ${randomNumberArray[@]}
 
-
 # FUNCTION TO GET SECOND MAXIMUM VALUE FROM ARRAY
-function getMaximum(){
-
-	firstMax=${randomNumberArray[0]}
-	secondMax=${randomNumberArray[0]}
-
+function getMaximumNumber(){
+	firstMaximum=${randomNumberArray[0]}
+	secondMaximum=${randomNumberArray[0]}
 	for(( i=1; i<$limit; i++ ))
-do
-	if [ ${randomNumberArray[$i]} -gt $firstMax ]
-	then
-		secondMax=$firstMax
-		firstMax=${randomNumberArray[$i]}
-
-	elif [[ $secondMax -lt ${randomNumberArray[$i]} ]]
-	then
-		secondMax=${randomNumberArray[$i]}
-	fi
-done
-echo $secondMax
+	do
+		if [ ${randomNumberArray[$i]} -gt $firstMaximum ]
+		then
+			secondMaximum=$firstMaximum
+			firstMaximum=${randomNumberArray[$i]}
+		elif [[ $secondMaximum -lt ${randomNumberArray[$i]} ]]
+		then
+			secondMaximum=${randomNumberArray[$i]}
+		fi
+	done
+echo $secondMaximum
 }
 
 # FUNCTION TO GET SECOND MINIMUM VALUE FROM ARRAY
-function getMinimum(){
-
-	firstMin=${randomNumberArray[0]}
-	secondMin=${randomNumberArray[0]}
-
+function getMinimumNumber(){
+	firstMinimum=${randomNumberArray[0]}
+	secondMinimum=${randomNumberArray[0]}
 	for(( i=1; i<limit; i++ ))
 	do
-   	if [ ${randomNumberArray[$i]} -lt $firstMin ]
+   	if [ ${randomNumberArray[$i]} -lt $firstMinimum ]
    	then
-			secondMin=$firstMin
-      	firstMin=${randomNumberArray[$i]}
-
-   	elif [[ $secondMin -gt ${randomNumberArray[$i]} ]]
+			secondMinimum=$firstMinimum
+      	firstMinimum=${randomNumberArray[$i]}
+   	elif [[ $secondMinimum -lt ${randomNumberArray[$i]} && i -eq 1 ]]
    	then
-      	secondMin=${randomNumberArray[$i]} 
+      	secondMinimum=${randomNumberArray[$i]} 
+		elif [[ $secondMinimum -gt ${randomNumberArray[$i]} ]]
+		then
+			secondMinimum=${randomNumberArray[$i]}
 		fi
 	done
-echo $secondMin
+echo $secondMinimum
 }
 
 # PRINTING SECOND LARGEST AND SMALLEST NUMBER FROM ARRAY
-secondLargestValue="$( getMaximum )"
-secondSmallestValue="$( getMinimum )"
+secondLargestValue="$( getMaximumNumber )"
+secondSmallestValue="$( getMinimumNumber )"
 echo "Second Largest:" $secondLargestValue
 echo "Second Smallest:" $secondSmallestValue 
