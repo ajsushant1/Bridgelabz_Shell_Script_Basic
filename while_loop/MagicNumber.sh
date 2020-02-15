@@ -11,8 +11,7 @@ while [ $low -ne $high ]
 do
 mid=$((((low+high))/2))
 
-read -p "If your number is greater $mid then press 1 otherwise press 0 :" input
-
+read -p "If your number is greater than $mid then press 1 otherwise press 0 :" input
 	if [ $input -eq 1 ]
 	then
 		low=$(($mid+1)) 
